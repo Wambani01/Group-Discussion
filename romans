@@ -1,0 +1,22 @@
+def romans(str = ""):
+    str = input("Enter Roman No.:")
+
+    romans = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+
+
+    length = len(str)
+    value = 0
+    if length == 1:
+        value = romans[str]
+        print(f"{value}")
+        return value
+    
+    for i in range (length - 1):
+        if romans[str[i]] >= romans[str[i + 1]]:
+            value += romans[str[i]]
+        elif romans[str[i]] < romans[str[i + 1]]:
+            value -= romans[str[i]]
+    value += romans[str[length - 1]]
+    print(f"{value}")
+    return value
+romans()
